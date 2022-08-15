@@ -13,7 +13,7 @@ class Solution {
             if(!Character.isWhitespace(s.charAt(i)))
             {
                 str+=s.charAt(i);
-                System.out.println(str);
+                // System.out.println(str);
             }
            
             else if(!str.isEmpty())
@@ -36,7 +36,7 @@ class Solution {
               if(i!=0)
               ans+=' ';  
          }
-        System.out.println(v);
+        // System.out.println(v);
         return ans;
     }
 }
