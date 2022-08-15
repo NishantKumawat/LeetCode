@@ -2,41 +2,17 @@ import java.util.*;
 class Solution {
     public String reverseWords(String s) {
         
-        int len=s.length()-1;
-        // s=s.trim();
-        // s = s.replaceAll("\\s+", " ");
-        String str="";
-        Vector<String> v=new Vector<>();
+        s=s.trim();
+        s = s.replaceAll("\\s+", " ");
+        String[] arr=s.split(" ");
+        String ans="";
         
-        for(int i=0;i<=len;i++)
+        for(int i=arr.length-1;i>=0;i--)
         {
-            if(!Character.isWhitespace(s.charAt(i)))
-            {
-                str+=s.charAt(i);
-                // System.out.println(str);
-            }
-           
-            else if(!str.isEmpty())
-            {
-               v.add(str);
-               str="";
-            }
-                
-            
+            ans=ans.concat(arr[i]);
+            if(i!=0)
+            ans+=' ';  
         }
-        if(!str.isEmpty())
-            {
-               v.add(str);
-               str="";
-            }
-          String ans="";
-         for(int i=v.size()-1;i>=0;i--)
-         {
-              ans=ans.concat(v.get(i));
-              if(i!=0)
-              ans+=' ';  
-         }
-        // System.out.println(v);
         return ans;
     }
 }
