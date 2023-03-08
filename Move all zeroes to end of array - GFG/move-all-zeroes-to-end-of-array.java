@@ -57,21 +57,52 @@ class Solution {
         
         //optimised solution         Time - O(n)   Space - O(n)
         
-        int[] num_arr = new int[n];
-        int j=0;
-        for(int i = 0;i<n;i++)
+        // int[] num_arr = new int[n];
+        // int j=0;
+        // for(int i = 0;i<n;i++)
+        // {
+        //     if(arr[i] != 0){
+        //         num_arr[j++] = arr[i];
+        //     }
+        // }
+        // for(int i = num_arr.length;i<n;i++)
+        // {
+        //     num_arr[i] = 0;
+        // }
+        // for(int i = 0;i<n;i++)
+        // {
+        //     arr[i] = num_arr[i];
+        // }
+        
+        //optimised solution         Time - O(n)   Space - O(1)
+        int k = 0;
+        
+        while(k<n)
         {
-            if(arr[i] != 0){
-                num_arr[j++] = arr[i];
+            if(arr[k] == 0)
+            {
+                break;
+            }
+            else
+            {
+                k++;
             }
         }
-        for(int i = num_arr.length;i<n;i++)
+        int zIndex = k;
+        int numIndex = zIndex+1;
+        while(zIndex < n && numIndex < n)
         {
-            num_arr[i] = 0;
-        }
-        for(int i = 0;i<n;i++)
-        {
-            arr[i] = num_arr[i];
+            if(arr[numIndex] != 0)
+            {
+                int temp = arr[zIndex];
+                arr[zIndex] = arr[numIndex];
+                arr[numIndex] = temp;
+                zIndex ++;
+            }
+            else
+            {
+                numIndex++;
+            }
         }
         
         
