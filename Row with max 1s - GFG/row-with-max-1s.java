@@ -36,29 +36,23 @@ public class Main {
 class Solution {
     int rowWithMax1s(int arr[][], int n, int m) {
         // code here
-        int max = 0;
-        int ans = 0;
-        for(int row = 0;row < n; row++)
-        {
-            int sum = 0;
-            for(int col = m-1;col>=0; col--)
-            {
-                if(arr[row][col]!=1)
-                break;
-                else
-                {
-                    sum += arr[row][col];
-                    if(sum > max){
-                        max=sum;
-                        ans = row;
-                    }
+        int maxCount = 0;
+        int maxRow = -1;
+        
+        for(int row = 0; row < n; row++){
+            int count = 0;
+            for(int col = m-1; col >= 0; col--){
+                if(arr[row][col] == 1){
+                    count++;
+                } else{
+                    break;
                 }
             }
+            if(count > maxCount){
+                maxCount = count;
+                maxRow = row;
+            }
         }
-        if(max==0)
-        {
-            ans=-1;
-        }
-        return ans;
+        return maxRow;
     }
 }
